@@ -1,7 +1,6 @@
 .drawer-container {
   height: 100%;
 }
-
 .sidebar {
   &--message {
     width: 100%;
@@ -15,7 +14,7 @@
   .mat-drawer-inner-container {
     display: flex;
     flex-direction: column;
-    height: 100% !important;
+    flex: 1;
   }
 
 }

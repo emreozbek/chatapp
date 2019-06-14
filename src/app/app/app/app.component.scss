@@ -1,0 +1,15 @@
+
+.modules-tab {
+  min-height: 100%;
+
+  .mat-tab-header {
+    z-index: 1;
+  }
+
+  .mat-tab-body-wrapper {
+    flex: 1;
+    z-index: 10;
+  }
+}
+
+
