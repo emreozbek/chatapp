@@ -41,7 +41,7 @@ module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Chat Application\">\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"drawer-container\" autosize>\n  <mat-tab-group dynamicHeight>\n    <mat-tab label=\"Messages\">\n      <app-chat-list (openChatSidebar)=\"open.chatSideBar($event)\"></app-chat-list>\n    </mat-tab>\n    <mat-tab label=\"Users\">\n      <app-user-list (openUserSidebar)=\"open.userSideBar($event)\"></app-user-list>\n    </mat-tab>\n    <mat-tab label=\"Settings\">\n      <app-setting-list></app-setting-list>\n    </mat-tab>\n  </mat-tab-group>\n  <mat-sidenav #chatSidebar class=\"sidebar sidebar--message\" mode=\"side\" position=\"start\" fixedInViewport>\n    <mat-toolbar class=\"zIndexTop mat-elevation-z8\" color=\"primary\">\n      <mat-toolbar-row>\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"chatSidebar.close()\">arrow_back_ios</mat-icon>\n        <span class=\"spacer\">\n           {{sidebarTitles.chat}}\n      </span>\n      </mat-toolbar-row>\n    </mat-toolbar>\n    <app-chat-detail></app-chat-detail>\n  </mat-sidenav>\n  <mat-sidenav #userSidebar class=\"sidebar sidebar--user\" mode=\"over\" position=\"end\" fixedInViewport>\n    <mat-toolbar class=\"zIndexTop mat-elevation-z0\" color=\"primary\">\n      <mat-toolbar-row>\n        <span class=\"spacer\">\n           {{sidebarTitles.user}}\n        </span>\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"userSidebar.close()\">close</mat-icon>\n      </mat-toolbar-row>\n    </mat-toolbar>\n    <app-user-profile (openChatWindow)=\"open.chatSideBar($event)\"></app-user-profile>\n  </mat-sidenav>\n</mat-sidenav-container>\n"
+    module.exports = "<mat-sidenav-container class=\"drawer-container\" autosize>\r\n  <mat-tab-group dynamicHeight>\r\n    <mat-tab label=\"Messages\">\r\n      <app-chat-list (openChatSidebar)=\"open.chatSideBar($event)\"></app-chat-list>\r\n    </mat-tab>\r\n    <mat-tab label=\"Users\">\r\n      <app-user-list (openUserSidebar)=\"open.userSideBar($event)\"></app-user-list>\r\n    </mat-tab>\r\n    <mat-tab label=\"Settings\">\r\n      <app-setting-list></app-setting-list>\r\n    </mat-tab>\r\n  </mat-tab-group>\r\n  <mat-sidenav #chatSidebar class=\"sidebar sidebar--message\" mode=\"side\" position=\"start\" fixedInViewport>\r\n    <mat-toolbar class=\"zIndexTop mat-elevation-z8\" color=\"primary\">\r\n      <mat-toolbar-row>\r\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"chatSidebar.close()\">arrow_back_ios</mat-icon>\r\n        <span class=\"spacer\">\r\n           {{sidebarTitles.chat}}\r\n      </span>\r\n      </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <app-chat-detail></app-chat-detail>\r\n  </mat-sidenav>\r\n  <mat-sidenav #userSidebar class=\"sidebar sidebar--user\" mode=\"over\" position=\"end\" fixedInViewport>\r\n    <mat-toolbar class=\"zIndexTop mat-elevation-z0\" color=\"primary\">\r\n      <mat-toolbar-row>\r\n        <span class=\"spacer\">\r\n           {{sidebarTitles.user}}\r\n        </span>\r\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"userSidebar.close()\">close</mat-icon>\r\n      </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <app-user-profile (openChatWindow)=\"open.chatSideBar($event)\"></app-user-profile>\r\n  </mat-sidenav>\r\n</mat-sidenav-container>\r\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = "<mat-sidenav-container class=\"drawer-container\" autosize>\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"messages-list-container\">\n  <div #scrollable class=\"scrollable\">\n    <ng-container *ngIf=\"chat\">\n      <ng-container *ngFor=\"let message of chat.chat\">\n        <app-message-bubble [message]=\"message\"></app-message-bubble>\n      </ng-container>\n    </ng-container>\n    <mat-spinner diameter=\"24\" color=\"warn\" *ngIf=\"sending\"></mat-spinner>\n  </div>\n</div>\n<div class=\"message-send mat-elevation-z8\">\n  <mat-form-field class=\"full-width\">\n    <input type=\"tel\" matInput placeholder=\"Write a message\" (keypress)=\"saveMessage($event)\">\n    <mat-icon matSuffix>mode_edit</mat-icon>\n  </mat-form-field>\n</div>\n"
+    module.exports = "<div class=\"messages-list-container\">\r\n  <div #scrollable class=\"scrollable\">\r\n    <ng-container *ngIf=\"chat\">\r\n      <ng-container *ngFor=\"let message of chat.chat\">\r\n        <app-message-bubble [message]=\"message\"></app-message-bubble>\r\n      </ng-container>\r\n    </ng-container>\r\n    <mat-spinner diameter=\"24\" color=\"warn\" *ngIf=\"sending\"></mat-spinner>\r\n  </div>\r\n</div>\r\n<div class=\"message-send mat-elevation-z8\">\r\n  <mat-form-field class=\"full-width\">\r\n    <input type=\"tel\" matInput placeholder=\"Write a message\" (keypress)=\"saveMessage($event)\">\r\n    <mat-icon matSuffix>mode_edit</mat-icon>\r\n  </mat-form-field>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<div class=\"messages-list-container\">\n  <div #scrollable cl
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list-item (click)=\"showMessageDetail()\">\n  <img alt=\"\" matListAvatar [src]=\"chat.cover\">\n  <h4 mat-line>{{chat.username}}</h4>\n  <p mat-line class=\"last-message\"> {{chat.lastMessage}} </p>\n  <span *ngIf=\"chat.lastMessageLength\" [matBadge]=\"chat.lastMessageLength\" matBadgeOverlap=\"false\"\n        matBadgePosition=\"above before\" matBadgeColor=\"warn\"></span>\n</mat-list-item>\n"
+    module.exports = "<mat-list-item (click)=\"showMessageDetail()\">\r\n  <img alt=\"\" matListAvatar [src]=\"chat.cover\">\r\n  <h4 mat-line>{{chat.username}}</h4>\r\n  <p mat-line class=\"last-message\"> {{chat.lastMessage}} </p>\r\n  <span *ngIf=\"chat.lastMessageLength\" [matBadge]=\"chat.lastMessageLength\" matBadgeOverlap=\"false\"\r\n        matBadgePosition=\"above before\" matBadgeColor=\"warn\"></span>\r\n</mat-list-item>\r\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ module.exports = "<mat-list-item (click)=\"showMessageDetail()\">\n  <img alt=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-nav-list>\n  <ng-container *ngFor=\"let chat of chats$ | async; let lastItem = last;\">\n    <app-chat-item (openChatSidebar)=\"openChatSidebar.emit($event)\" [chat]=\"chat\"></app-chat-item>\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\n  </ng-container>\n</mat-nav-list>\n"
+    module.exports = "<mat-nav-list>\r\n  <ng-container *ngFor=\"let chat of chats$ | async; let lastItem = last;\">\r\n    <app-chat-item (openChatSidebar)=\"openChatSidebar.emit($event)\" [chat]=\"chat\"></app-chat-item>\r\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\r\n  </ng-container>\r\n</mat-nav-list>\r\n"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ module.exports = "<mat-nav-list>\n  <ng-container *ngFor=\"let chat of chats$ | 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bubble\" [class.bubble--me]=\"message.id==environment.userId\">\n  <div class=\"bubble__cover\">\n    <img class=\"bubble__picture\" [src]=\"message.cover\" alt=\"\">\n  </div>\n  <div class=\"bubble__container\">\n    <mat-card class=\"bubble__card\">\n      {{message.message}}\n    </mat-card>\n  </div>\n</div>\n"
+    module.exports = "<div class=\"bubble\" [class.bubble--me]=\"message.id==environment.userId\">\r\n  <div class=\"bubble__cover\">\r\n    <img class=\"bubble__picture\" [src]=\"message.cover\" alt=\"\">\r\n  </div>\r\n  <div class=\"bubble__container\">\r\n    <mat-card class=\"bubble__card\">\r\n      {{message.message}}\r\n    </mat-card>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ module.exports = "<div class=\"bubble\" [class.bubble--me]=\"message.id==environ
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<span [class]=\"'status status--' + type\">\n  {{text}}\n</span>\n"
+    module.exports = "<span [class]=\"'status status--' + type\">\r\n  {{text}}\r\n</span>\r\n"
 
 /***/ }),
 
@@ -118,7 +118,7 @@ module.exports = "<div class=\"options\">\r\n  <mat-button-toggle-group name=\"f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-card>\n  <form>\n    <p mat-line>\n      <label>Theme</label>\n      <mat-radio-group\n        class=\"radioGroup\" labelPosition=\"after\" name=\"theme\">\n        <mat-radio-button value=\"dark\" class=\"radioGroup__button\">Dark</mat-radio-button>\n        <mat-radio-button value=\"light\" class=\"radioGroup__button\">Light</mat-radio-button>\n        <mat-radio-button value=\"contrast\" class=\"radioGroup__button\">Contrast</mat-radio-button>\n      </mat-radio-group>\n    </p>\n    <p mat-line>\n      <mat-slide-toggle>Remove My Account</mat-slide-toggle>\n    </p>\n    <p mat-line>\n      <button mat-raised-button color=\"primary\">Save</button>\n    </p>\n  </form>\n</mat-card>\n"
+    module.exports = "<mat-card>\r\n  <form>\r\n    <p mat-line>\r\n      <label>Theme</label>\r\n      <mat-radio-group\r\n        class=\"radioGroup\" labelPosition=\"after\" name=\"theme\">\r\n        <mat-radio-button value=\"dark\" class=\"radioGroup__button\">Dark</mat-radio-button>\r\n        <mat-radio-button value=\"light\" class=\"radioGroup__button\">Light</mat-radio-button>\r\n        <mat-radio-button value=\"contrast\" class=\"radioGroup__button\">Contrast</mat-radio-button>\r\n      </mat-radio-group>\r\n    </p>\r\n    <p mat-line>\r\n      <mat-slide-toggle>Remove My Account</mat-slide-toggle>\r\n    </p>\r\n    <p mat-line>\r\n      <button mat-raised-button color=\"primary\">Save</button>\r\n    </p>\r\n  </form>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -129,7 +129,7 @@ module.exports = "<mat-card>\n  <form>\n    <p mat-line>\n      <label>Theme</la
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-list-item (click)=\"showProfile()\">\n  <img matListAvatar [src]=\"user.cover\">\n  <h4 mat-line>{{user.name}}</h4>\n  <p mat-line>\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\n  </p>\n</mat-list-item>\n"
+    module.exports = "<mat-list-item (click)=\"showProfile()\">\r\n  <img matListAvatar [src]=\"user.cover\">\r\n  <h4 mat-line>{{user.name}}</h4>\r\n  <p mat-line>\r\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\r\n  </p>\r\n</mat-list-item>\r\n"
 
 /***/ }),
 
@@ -140,7 +140,7 @@ module.exports = "<mat-list-item (click)=\"showProfile()\">\n  <img matListAvata
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-nav-list>\n  <ng-container *ngFor=\"let user of data; let lastItem = last;\">\n    <app-user-item [user]=\"user\" (openSidebar)=\"openSidebar.emit($event)\"></app-user-item>\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\n  </ng-container>\n</mat-nav-list>\n"
+    module.exports = "<mat-nav-list>\r\n  <ng-container *ngFor=\"let user of data; let lastItem = last;\">\r\n    <app-user-item [user]=\"user\" (openSidebar)=\"openSidebar.emit($event)\"></app-user-item>\r\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\r\n  </ng-container>\r\n</mat-nav-list>\r\n"
 
 /***/ }),
 
@@ -151,7 +151,7 @@ module.exports = "<mat-nav-list>\n  <ng-container *ngFor=\"let user of data; let
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"profile\" *ngIf=\"user\">\n  <div class=\"profile__picture-container\">\n    <img class=\"profile__picture\" [src]=\"user.cover\" alt=\"\">\n  </div>\n  <div class=\"profile__button\">\n    <button mat-flat-button color=\"primary\" (click)=\"openNewChat()\">Write Message</button>\n  </div>\n  <h1 class=\"mat-h1 profile__username\">{{user.username}}</h1>\n  <div mat-line class=\"profile__status\">\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\n  </div>\n  <h2 class=\"mat-h2\">Biography</h2>\n  <p class=\"body-1\">{{user.bio}}</p>\n</div>\n\n\n"
+    module.exports = "<div class=\"profile\" *ngIf=\"user\">\r\n  <div class=\"profile__picture-container\">\r\n    <img class=\"profile__picture\" [src]=\"user.cover\" alt=\"\">\r\n  </div>\r\n  <div class=\"profile__button\">\r\n    <button mat-flat-button color=\"primary\" (click)=\"openNewChat()\">Write Message</button>\r\n  </div>\r\n  <h1 class=\"mat-h1 profile__username\">{{user.username}}</h1>\r\n  <div mat-line class=\"profile__status\">\r\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\r\n  </div>\r\n  <h2 class=\"mat-h2\">Biography</h2>\r\n  <p class=\"body-1\">{{user.bio}}</p>\r\n</div>\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1106,31 +1106,46 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let CustomFunctionService = class CustomFunctionService {
-    constructor() {
-    }
     resolver(source) {
         if (source instanceof Array) {
-            return this.arrayResolver(source);
+          return this.join(this.array(source));
         }
         if (source instanceof Object) {
-            return this.objectResolver(source);
+          return JSON.stringify(this.object(source));
         }
         if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(source)) {
             return source;
         }
     }
-    arrayResolver(data) {
+
+  join(data) {
+    data.map((row, index) => {
+      if (row instanceof Array) {
+        this.join(row);
+      } else if (row instanceof Object) {
+        data[index] = JSON.stringify(row);
+      } else if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(row)) {
+        return row;
+      }
+    });
+    return data.join("\n");
+  }
+
+  array(data) {
         data.map(row => {
             if (row instanceof Array) {
-                row = this.arrayResolver(row);
+              row = this.array(row);
             }
             else if (row instanceof Object) {
-                row = this.objectResolver(row);
+              row = this.object(row);
+            } else if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(row)) {
+              return row;
             }
         });
         return data;
     }
-    objectResolver(data) {
+
+  object(data) {
         let formatted = data.tmpl;
         for (let key in data.data) {
             formatted = formatted.replace(new RegExp(`{${key}}`, 'g'), data.data[key]);
@@ -1142,8 +1157,7 @@ let CustomFunctionService = class CustomFunctionService {
 CustomFunctionService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
         providedIn: 'root'
-    }),
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    })
 ], CustomFunctionService);
 
 
@@ -1192,7 +1206,9 @@ let CustomFunctionComponent = class CustomFunctionComponent {
                                 tmpl: "I like to {opt1}, {opt2}",
                                 data: { opt1: "ride my", opt2: "bicycle" }
                             }, { tmpl: "I like to {opt1}, {opt2}", data: { opt1: "ride my", opt2: "bicycle" } }],
-                        { tmpl: "My friend is a {opt1}", data: { opt1: "jedi" } }
+                      {tmpl: "My friend is a {opt1}", data: {opt1: "jedi"}},
+                      "I once ate 7 cheesburgers",
+                      "I once ate 7 cheesburgers"
                     ];
                 }
                 break;
@@ -1208,7 +1224,7 @@ let CustomFunctionComponent = class CustomFunctionComponent {
                 break;
         }
         this.source = JSON.stringify(source);
-        this.result = JSON.stringify(this.customFunction.resolver(source));
+      this.result = this.customFunction.resolver(source);
     }
 };
 CustomFunctionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
