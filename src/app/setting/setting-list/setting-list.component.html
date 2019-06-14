@@ -1,0 +1,19 @@
+<mat-card>
+  <form>
+    <p mat-line>
+      <label>Theme</label>
+      <mat-radio-group
+        class="radioGroup" labelPosition="after" name="theme">
+        <mat-radio-button value="dark" class="radioGroup__button">Dark</mat-radio-button>
+        <mat-radio-button value="light" class="radioGroup__button">Light</mat-radio-button>
+        <mat-radio-button value="contrast" class="radioGroup__button">Contrast</mat-radio-button>
+      </mat-radio-group>
+    </p>
+    <p mat-line>
+      <mat-slide-toggle>Remove My Account</mat-slide-toggle>
+    </p>
+    <p mat-line>
+      <button mat-raised-button color="primary">Save</button>
+    </p>
+  </form>
+</mat-card>
