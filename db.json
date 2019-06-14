@@ -1,0 +1,175 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "username": "Rockwall",
+      "name": "Emre ÖZBEK",
+      "cover": "http://www.emreozbek.net/covers/0.jpg",
+      "status": "Online",
+      "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
+    },
+    {
+      "id": 1,
+      "username": "Rebellion",
+      "name": "Cristiano Ronaldo",
+      "cover": "http://www.emreozbek.net/covers/1.jpg",
+      "status": "Busy",
+      "bio": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
+    },
+    {
+      "id": 2,
+      "username": "asli.diner",
+      "name": "Aslı Diner",
+      "cover": "http://www.emreozbek.net/covers/2.jpg",
+      "status": "Online",
+      "bio": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as"
+    },
+    {
+      "id": 3,
+      "username": "kahraman-2001",
+      "name": "Hasan Kahraman",
+      "cover": "http://www.emreozbek.net/covers/3.jpg",
+      "status": "Online",
+      "bio": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200"
+    },
+    {
+      "id": 4,
+      "username": "developer11",
+      "name": "Mark Zuckerberg",
+      "cover": "http://www.emreozbek.net/covers/4.jpg",
+      "status": "Offline",
+      "bio": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    },
+    {
+      "id": 5,
+      "username": "designer1",
+      "name": "Cindy Violet",
+      "cover": "http://www.emreozbek.net/covers/5.jpg",
+      "status": "Offline",
+      "bio": ""
+    },
+    {
+      "id": 6,
+      "username": "mad.men",
+      "name": "Jon Hamm",
+      "cover": "http://www.emreozbek.net/covers/6.jpg",
+      "status": "Offline",
+      "bio": ""
+    },
+    {
+      "id": 7,
+      "username": "star.wars",
+      "name": "Luke Skywalker",
+      "cover": "http://www.emreozbek.net/covers/7.jpg",
+      "status": "Offline",
+      "bio": ""
+    },
+    {
+      "id": 8,
+      "username": "inception",
+      "name": "Cobb",
+      "cover": "http://www.emreozbek.net/covers/8.jpg",
+      "status": "Offline",
+      "bio": ""
+    },
+    {
+      "id": 9,
+      "username": "god.father",
+      "name": "Al Pacino",
+      "cover": "http://www.emreozbek.net/covers/9.jpg",
+      "status": "Offline",
+      "bio": ""
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "targetUserId": 1,
+      "username" : "Rebellion",
+      "cover": "http://www.emreozbek.net/covers/1.jpg",
+      "lastMessage": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.",
+      "lastMessageLength": 1,
+      "chat": [
+        {
+          "id": "2",
+          "cover": "http://www.emreozbek.net/covers/2.jpg",
+          "message": "Hi"
+        },
+        {
+          "id": "2",
+          "cover": "http://www.emreozbek.net/covers/2.jpg",
+          "message": "How are you?"
+        },
+        {
+          "id": "0",
+          "cover": "http://www.emreozbek.net/covers/0.jpg",
+          "message": "Hi Cris, I am good, you?"
+        },{
+          "id": "2",
+          "cover": "http://www.emreozbek.net/covers/2.jpg",
+          "message": "Thank you."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "targetUserId": 4,
+      "username" : "developer11",
+      "cover": "http://www.emreozbek.net/covers/4.jpg",
+      "lastMessage": "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary,",
+      "lastMessageLength": 2,
+      "chat": [
+        {
+          "id": "4",
+          "cover": "http://www.emreozbek.net/covers/4.jpg",
+          "message": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        },
+        {
+          "id": "4",
+          "cover": "http://www.emreozbek.net/covers/4.jpg",
+          "message": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "targetUserId": 6,
+      "username" : "mad.men",
+      "cover": "http://www.emreozbek.net/covers/6.jpg",
+      "lastMessage": " Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.",
+      "lastMessageLength": 0,
+      "chat": [
+        {
+          "id": "7",
+          "cover": "http://www.emreozbek.net/covers/7.jpg",
+          "message": "Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+        },
+        {
+          "id": "0",
+          "cover": "http://www.emreozbek.net/covers/0.jpg",
+          "message": "Lorem ipsum dolor sit amet."
+        },
+        {
+          "id": "0",
+          "cover": "http://www.emreozbek.net/covers/0.jpg",
+          "message": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+        }
+      ]
+    }
+  ],
+  "saveMessage": {
+    "id": 0,
+    "chatId": 3,
+    "cover": "http://www.emreozbek.net/covers/0.jpg",
+    "message": "Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+  },
+  "createChat": {
+    "id": 100,
+    "targetUserId": 5,
+    "username" : "Rebellion",
+    "cover": "http://www.emreozbek.net/covers/5.jpg",
+    "lastMessage": "",
+    "lastMessageLength": 0,
+    "chat": []
+  }
+}
