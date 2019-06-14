@@ -52,7 +52,7 @@ module.exports = "<mat-tab-group>\r\n  <mat-tab label=\"Chat Application\">\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<div class=\"messages-list-container\">\r\n  <div #scrollable class=\"scrollable\">\r\n    <ng-container *ngIf=\"chat\">\r\n      <ng-container *ngFor=\"let message of chat.chat\">\r\n        <app-message-bubble [message]=\"message\"></app-message-bubble>\r\n      </ng-container>\r\n    </ng-container>\r\n    <mat-spinner diameter=\"24\" color=\"warn\" *ngIf=\"sending\"></mat-spinner>\r\n  </div>\r\n</div>\r\n<div class=\"message-send mat-elevation-z8\">\r\n  <mat-form-field class=\"full-width\">\r\n    <input type=\"tel\" matInput placeholder=\"Write a message\" (keypress)=\"saveMessage($event)\">\r\n    <mat-icon matSuffix>mode_edit</mat-icon>\r\n  </mat-form-field>\r\n</div>\r\n"
+    module.exports = "<div class=\"messages-list-container\">\r\n  <div #scrollable class=\"scrollable\">\r\n    <ng-container *ngIf=\"chat\">\r\n      <ng-container *ngFor=\"let message of chat.chat\">\r\n        <app-message-bubble [message]=\"message\"></app-message-bubble>\r\n      </ng-container>\r\n    </ng-container>\r\n    <mat-spinner diameter=\"24\" color=\"warn\" *ngIf=\"sending\"></mat-spinner>\r\n  </div>\r\n</div>\r\n<div class=\"message-send mat-elevation-z8\">\r\n  <mat-form-field class=\"full-width\">\r\n    <input type=\"text\" matInput placeholder=\"Write a message\" (keypress)=\"saveMessage($event)\">\r\n    <mat-icon matSuffix>mode_edit</mat-icon>\r\n  </mat-form-field>\r\n</div>\r\n"
 
 /***/ }),
 
