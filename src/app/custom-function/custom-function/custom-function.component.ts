@@ -23,7 +23,9 @@ export class CustomFunctionComponent {
             tmpl: "I like to {opt1}, {opt2}",
             data: {opt1: "ride my", opt2: "bicycle"}
           }, {tmpl: "I like to {opt1}, {opt2}", data: {opt1: "ride my", opt2: "bicycle"}}],
-          {tmpl: "My friend is a {opt1}", data: {opt1: "jedi"}}
+          {tmpl: "My friend is a {opt1}", data: {opt1: "jedi"}},
+          "I once ate 7 cheesburgers",
+          "I once ate 7 cheesburgers"
         ];
       }
         break;
@@ -37,6 +39,6 @@ export class CustomFunctionComponent {
         break;
     }
     this.source = JSON.stringify(source);
-    this.result = JSON.stringify(this.customFunction.resolver(source));
+    this.result = this.customFunction.resolver(source);
   }
 }

@@ -6,33 +6,45 @@ import {isString} from "util";
   providedIn: 'root'
 })
 export class CustomFunctionService {
-  constructor() {
-  }
-
   resolver(source: any) {
     if (source instanceof Array) {
-      return this.arrayResolver(source);
+      return this.join(this.array(source));
     }
     if (source instanceof Object) {
-      return this.objectResolver(source);
+      return JSON.stringify(this.object(source));
     }
     if (isString(source)) {
       return source;
     }
   }
 
-  protected arrayResolver(data) {
+  protected join(data: Array<any>) {
+    data.map((row, index) => {
+      if (row instanceof Array) {
+        this.join(row);
+      } else if (row instanceof Object) {
+        data[index] = JSON.stringify(row);
+      } else if (isString(row)) {
+        return row;
+      }
+    });
+    return data.join("\n");
+  }
+
+  protected array(data) {
     data.map(row => {
       if (row instanceof Array) {
-        row = this.arrayResolver(row);
+        row = this.array(row);
       } else if (row instanceof Object) {
-        row = this.objectResolver(row);
+        row = this.object(row);
+      } else if (isString(row)) {
+        return row;
       }
     });
     return data;
   }
 
-  protected objectResolver(data: CustomObjectModel) {
+  protected object(data: CustomObjectModel) {
     let formatted = data.tmpl;
     for (let key in data.data) {
       formatted = formatted.replace(new RegExp(`{${key}}`, 'g'), data.data[key]);
