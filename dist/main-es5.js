@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-tab-group class=\"modules-tab\">\r\n  <mat-tab label=\"Chat Application\">\r\n    <app-chat-tab></app-chat-tab>\r\n  </mat-tab>\r\n  <mat-tab label=\"Custom Function\">\r\n    <app-custom-function></app-custom-function>\r\n  </mat-tab>\r\n</mat-tab-group>\r\n"
+module.exports = "<div class=\"tab-container\">\r\n  <nav mat-tab-nav-bar mat-stretch-tabs backgroundColor=\"primary\">\r\n    <a mat-tab-link [routerLink]=\"link.url\" *ngFor=\"let link of links\" (click)=\"activeLink = link.url\"\r\n       [active]=\"activeLink == link.url\"> {{link.label}} </a>\r\n  </nav>\r\n  <div class=\"tab-content\">\r\n    <router-outlet></router-outlet>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -41,7 +41,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-sidenav-container class=\"drawer-container\" autosize>\r\n  <mat-tab-group>\r\n    <mat-tab label=\"Messages\">\r\n      <app-chat-list (openChatSidebar)=\"open.chatSideBar($event)\"></app-chat-list>\r\n    </mat-tab>\r\n    <mat-tab label=\"Users\">\r\n      <app-user-list (openUserSidebar)=\"open.userSideBar($event)\"></app-user-list>\r\n    </mat-tab>\r\n    <mat-tab label=\"Settings\">\r\n      <app-setting-list></app-setting-list>\r\n    </mat-tab>\r\n  </mat-tab-group>\r\n  <mat-sidenav #chatSidebar class=\"sidebar sidebar--message\" mode=\"side\" position=\"start\" fixedInViewport>\r\n    <mat-toolbar class=\"zIndexTop mat-elevation-z8\" color=\"primary\">\r\n      <mat-toolbar-row>\r\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"chatSidebar.close()\">arrow_back_ios</mat-icon>\r\n        <span class=\"spacer\">\r\n           {{sidebarTitles.chat}}\r\n      </span>\r\n      </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <app-chat-detail></app-chat-detail>\r\n  </mat-sidenav>\r\n  <mat-sidenav #userSidebar class=\"sidebar sidebar--user\" mode=\"over\" position=\"end\" fixedInViewport>\r\n    <mat-toolbar class=\"zIndexTop mat-elevation-z0\" color=\"primary\">\r\n      <mat-toolbar-row>\r\n        <span class=\"spacer\">\r\n           {{sidebarTitles.user}}\r\n        </span>\r\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"userSidebar.close()\">close</mat-icon>\r\n      </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <app-user-profile (openChatWindow)=\"open.chatSideBar($event)\"></app-user-profile>\r\n  </mat-sidenav>\r\n</mat-sidenav-container>\r\n"
+module.exports = "<mat-sidenav-container class=\"drawer-container\" autosize>\r\n  <mat-tab-group mat-align-tabs=\"center\">\r\n    <mat-tab label=\"Messages\">\r\n      <app-chat-list (openChatSidebar)=\"open.chatSideBar($event)\"></app-chat-list>\r\n    </mat-tab>\r\n    <mat-tab label=\"Users\">\r\n      <app-user-list (openUserSidebar)=\"open.userSideBar($event)\"></app-user-list>\r\n    </mat-tab>\r\n    <mat-tab label=\"Settings\">\r\n      <app-setting-list></app-setting-list>\r\n    </mat-tab>\r\n  </mat-tab-group>\r\n  <mat-sidenav #chatSidebar class=\"sidebar sidebar--message\" mode=\"side\" position=\"start\" fixedInViewport>\r\n    <mat-toolbar class=\"zIndexTop mat-elevation-z8\" color=\"primary\">\r\n      <mat-toolbar-row>\r\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"chatSidebar.close()\">arrow_back_ios</mat-icon>\r\n        <span class=\"spacer\">\r\n           {{sidebarTitles.chat}}\r\n      </span>\r\n      </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <app-chat-detail></app-chat-detail>\r\n  </mat-sidenav>\r\n  <mat-sidenav #userSidebar class=\"sidebar sidebar--user\" mode=\"over\" position=\"end\" fixedInViewport>\r\n    <mat-toolbar class=\"zIndexTop mat-elevation-z0\" color=\"primary\">\r\n      <mat-toolbar-row>\r\n        <span class=\"spacer\">\r\n           {{sidebarTitles.user}}\r\n        </span>\r\n        <mat-icon class=\"button\" aria-hidden=\"false\" (click)=\"userSidebar.close()\">close</mat-icon>\r\n      </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <app-user-profile (openChatWindow)=\"open.chatSideBar($event)\"></app-user-profile>\r\n  </mat-sidenav>\r\n</mat-sidenav-container>\r\n"
 
 /***/ }),
 
@@ -52,7 +52,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<div class=\"messages-list-container\">\r\n  <div #scrollable class=\"scrollable\">\r\n    <ng-container *ngIf=\"chat\">\r\n      <ng-container *ngFor=\"let message of chat.chat\">\r\n        <app-message-bubble [message]=\"message\"></app-message-bubble>\r\n      </ng-container>\r\n    </ng-container>\r\n    <mat-spinner diameter=\"24\" color=\"warn\" *ngIf=\"sending\"></mat-spinner>\r\n  </div>\r\n</div>\r\n<div class=\"message-send mat-elevation-z8\">\r\n  <mat-form-field class=\"full-width\">\r\n    <input type=\"text\" matInput placeholder=\"Write a message\" (keypress)=\"saveMessage($event)\">\r\n    <mat-icon matSuffix>mode_edit</mat-icon>\r\n  </mat-form-field>\r\n</div>\r\n"
+module.exports = "<div class=\"messages-list-container\">\r\n  <div #scrollable class=\"scrollable\">\r\n    <ng-container *ngIf=\"chat\">\r\n      <ng-container *ngFor=\"let message of chat.chat\">\r\n        <app-message-bubble [message]=\"message\"></app-message-bubble>\r\n      </ng-container>\r\n    </ng-container>\r\n    <mat-spinner diameter=\"24\" color=\"warn\" *ngIf=\"sending\"></mat-spinner>\r\n  </div>\r\n</div>\r\n<div class=\"message-send mat-elevation-z8\">\r\n  <mat-form-field class=\"full-width\">\r\n    <input type=\"text\" matInput placeholder=\"Write a message\" (keypress)=\"saveMessage($event)\">\r\n    <mat-icon matSuffix>mode_edit</mat-icon>\r\n  </mat-form-field>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-list-item (click)=\"showMessageDetail()\">\r\n  <img alt=\"\" matListAvatar [src]=\"chat.cover\">\r\n  <h4 mat-line>{{chat.username}}</h4>\r\n  <p mat-line class=\"last-message\"> {{chat.lastMessage}} </p>\r\n  <span *ngIf=\"chat.lastMessageLength\" [matBadge]=\"chat.lastMessageLength\" matBadgeOverlap=\"false\"\r\n        matBadgePosition=\"above before\" matBadgeColor=\"warn\"></span>\r\n</mat-list-item>\r\n"
+module.exports = "<mat-list-item (click)=\"showMessageDetail()\">\r\n  <img alt=\"\" matListAvatar [src]=\"chat.cover\">\r\n  <h4 mat-line>{{chat.username}}</h4>\r\n  <p mat-line class=\"last-message\"> {{chat.lastMessage}} </p>\r\n  <span *ngIf=\"chat.lastMessageLength\" [matBadge]=\"chat.lastMessageLength\" matBadgeOverlap=\"false\"\r\n        matBadgePosition=\"above before\" matBadgeColor=\"warn\"></span>\r\n</mat-list-item>\r\n"
 
 /***/ }),
 
@@ -74,7 +74,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-nav-list>\r\n  <ng-container *ngFor=\"let chat of chats$ | async; let lastItem = last;\">\r\n    <app-chat-item (openChatSidebar)=\"openChatSidebar.emit($event)\" [chat]=\"chat\"></app-chat-item>\r\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\r\n  </ng-container>\r\n</mat-nav-list>\r\n"
+module.exports = "<mat-nav-list>\r\n  <ng-container *ngFor=\"let chat of chats$ | async; let lastItem = last;\">\r\n    <app-chat-item (openChatSidebar)=\"openChatSidebar.emit($event)\" [chat]=\"chat\"></app-chat-item>\r\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\r\n  </ng-container>\r\n</mat-nav-list>\r\n"
 
 /***/ }),
 
@@ -85,7 +85,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<div class=\"bubble\" [class.bubble--me]=\"message.id==environment.userId\">\r\n  <div class=\"bubble__cover\">\r\n    <img class=\"bubble__picture\" [src]=\"message.cover\" alt=\"\">\r\n  </div>\r\n  <div class=\"bubble__container\">\r\n    <mat-card class=\"bubble__card\">\r\n      {{message.message}}\r\n    </mat-card>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"bubble\" [class.bubble--me]=\"message.id==environment.userId\">\r\n  <div class=\"bubble__cover\">\r\n    <img class=\"bubble__picture\" [src]=\"message.cover\" alt=\"\">\r\n  </div>\r\n  <div class=\"bubble__container\">\r\n    <mat-card class=\"bubble__card\">\r\n      {{message.message}}\r\n    </mat-card>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -96,7 +96,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<span [class]=\"'status status--' + type\">\r\n  {{text}}\r\n</span>\r\n"
+module.exports = "<span [class]=\"'mat-caption status status--' + type\">\r\n  {{text}}\r\n</span>\r\n"
 
 /***/ }),
 
@@ -118,7 +118,7 @@ module.exports = "<div class=\"options\">\r\n  <mat-button-toggle-group name=\"f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-card>\r\n  <form>\r\n    <p mat-line>\r\n      <label>Theme</label>\r\n      <mat-radio-group\r\n        class=\"radioGroup\" labelPosition=\"after\" name=\"theme\">\r\n        <mat-radio-button value=\"dark\" class=\"radioGroup__button\">Dark</mat-radio-button>\r\n        <mat-radio-button value=\"light\" class=\"radioGroup__button\">Light</mat-radio-button>\r\n        <mat-radio-button value=\"contrast\" class=\"radioGroup__button\">Contrast</mat-radio-button>\r\n      </mat-radio-group>\r\n    </p>\r\n    <p mat-line>\r\n      <mat-slide-toggle>Remove My Account</mat-slide-toggle>\r\n    </p>\r\n    <p mat-line>\r\n      <button mat-raised-button color=\"primary\">Save</button>\r\n    </p>\r\n  </form>\r\n</mat-card>\r\n"
+module.exports = "<mat-card>\r\n  <form action=\"#\">\r\n    <p mat-line>\r\n      <label>Theme</label>\r\n      <mat-radio-group\r\n        class=\"radioGroup\" labelPosition=\"after\" name=\"theme\">\r\n        <mat-radio-button value=\"dark\" class=\"radioGroup__button\">Dark</mat-radio-button>\r\n        <mat-radio-button value=\"light\" class=\"radioGroup__button\">Light</mat-radio-button>\r\n        <mat-radio-button value=\"contrast\" class=\"radioGroup__button\">Contrast</mat-radio-button>\r\n      </mat-radio-group>\r\n    </p>\r\n    <p mat-line>\r\n      <mat-slide-toggle>Remove My Account</mat-slide-toggle>\r\n    </p>\r\n    <p mat-line>\r\n      <button mat-raised-button color=\"primary\" type=\"button\">Save</button>\r\n    </p>\r\n  </form>\r\n</mat-card>\r\n"
 
 /***/ }),
 
@@ -129,7 +129,7 @@ module.exports = "<div class=\"options\">\r\n  <mat-button-toggle-group name=\"f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-list-item (click)=\"showProfile()\">\r\n  <img matListAvatar [src]=\"user.cover\">\r\n  <h4 mat-line>{{user.name}}</h4>\r\n  <p mat-line>\r\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\r\n  </p>\r\n</mat-list-item>\r\n"
+module.exports = "<mat-list-item (click)=\"showProfile()\">\r\n  <img matListAvatar [src]=\"user.cover\">\r\n  <h4 mat-line>{{user.name}}</h4>\r\n  <p mat-line>\r\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\r\n  </p>\r\n</mat-list-item>\r\n"
 
 /***/ }),
 
@@ -140,7 +140,7 @@ module.exports = "<div class=\"options\">\r\n  <mat-button-toggle-group name=\"f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<mat-nav-list>\r\n  <ng-container *ngFor=\"let user of data; let lastItem = last;\">\r\n    <app-user-item [user]=\"user\" (openSidebar)=\"openSidebar.emit($event)\"></app-user-item>\r\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\r\n  </ng-container>\r\n</mat-nav-list>\r\n"
+module.exports = "<mat-nav-list>\r\n  <ng-container *ngFor=\"let user of data; let lastItem = last;\">\r\n    <app-user-item [user]=\"user\" (openSidebar)=\"openSidebar.emit($event)\"></app-user-item>\r\n    <mat-divider *ngIf=\"!lastItem\"></mat-divider>\r\n  </ng-container>\r\n</mat-nav-list>\r\n"
 
 /***/ }),
 
@@ -151,7 +151,52 @@ module.exports = "<div class=\"options\">\r\n  <mat-button-toggle-group name=\"f
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<div class=\"profile\" *ngIf=\"user\">\r\n  <div class=\"profile__picture-container\">\r\n    <img class=\"profile__picture\" [src]=\"user.cover\" alt=\"\">\r\n  </div>\r\n  <div class=\"profile__button\">\r\n    <button mat-flat-button color=\"primary\" (click)=\"openNewChat()\">Write Message</button>\r\n  </div>\r\n  <h1 class=\"mat-h1 profile__username\">{{user.username}}</h1>\r\n  <div mat-line class=\"profile__status\">\r\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\r\n  </div>\r\n  <h2 class=\"mat-h2\">Biography</h2>\r\n  <p class=\"body-1\">{{user.bio}}</p>\r\n</div>\r\n\r\n\r\n"
+module.exports = "<div class=\"profile\" *ngIf=\"user\">\r\n  <div class=\"profile__picture-container\">\r\n    <img class=\"profile__picture\" [src]=\"user.cover\" alt=\"\">\r\n  </div>\r\n  <div class=\"profile__button\">\r\n    <button mat-flat-button color=\"primary\" (click)=\"openNewChat()\">Write Message</button>\r\n  </div>\r\n  <h1 class=\"mat-h1 profile__username\">{{user.username}}</h1>\r\n  <div mat-line class=\"profile__status\">\r\n    <app-status class=\"mat-line\" [type]=\"user.status.toLowerCase()\" [text]=\"user.status\"></app-status>\r\n  </div>\r\n  <h2 class=\"mat-h2\">Biography</h2>\r\n  <p class=\"mat-body\">{{user.bio}}</p>\r\n</div>\r\n\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/app/app-routing.module.ts":
+/*!*******************************************!*\
+  !*** ./src/app/app/app-routing.module.ts ***!
+  \*******************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _chat_tab_chat_tab_chat_tab_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../chat-tab/chat-tab/chat-tab.component */ "./src/app/chat-tab/chat-tab/chat-tab.component.ts");
+/* harmony import */ var _custom_function_custom_function_custom_function_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../custom-function/custom-function/custom-function.component */ "./src/app/custom-function/custom-function/custom-function.component.ts");
+
+
+
+
+
+var appRoutes = [
+    { path: '', component: _chat_tab_chat_tab_chat_tab_component__WEBPACK_IMPORTED_MODULE_3__["ChatTabComponent"] },
+    { path: 'chatapp', component: _chat_tab_chat_tab_chat_tab_component__WEBPACK_IMPORTED_MODULE_3__["ChatTabComponent"] },
+    { path: 'custom-function', component: _custom_function_custom_function_custom_function_component__WEBPACK_IMPORTED_MODULE_4__["CustomFunctionComponent"] }
+];
+var AppRoutingModule = /** @class */ (function () {
+    function AppRoutingModule() {
+    }
+    AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(appRoutes)
+            ],
+            exports: [
+                _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]
+            ]
+        })
+    ], AppRoutingModule);
+    return AppRoutingModule;
+}());
+
+
 
 /***/ }),
 
@@ -173,6 +218,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_user_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../user/user.module */ "./src/app/user/user.module.ts");
 /* harmony import */ var _setting_setting_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../setting/setting.module */ "./src/app/setting/setting.module.ts");
 /* harmony import */ var _custom_function_custom_function_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../custom-function/custom-function.module */ "./src/app/custom-function/custom-function.module.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app/app-routing.module.ts");
+
 
 
 
@@ -194,7 +241,8 @@ var AppModule = /** @class */ (function () {
                 _chat_tab_chat_tab_module__WEBPACK_IMPORTED_MODULE_4__["ChatTabModule"],
                 _user_user_module__WEBPACK_IMPORTED_MODULE_5__["UserModule"],
                 _setting_setting_module__WEBPACK_IMPORTED_MODULE_6__["SettingModule"],
-                _custom_function_custom_function_module__WEBPACK_IMPORTED_MODULE_7__["CustomFunctionModule"]
+                _custom_function_custom_function_module__WEBPACK_IMPORTED_MODULE_7__["CustomFunctionModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]
             ],
             bootstrap: [_app_app_component__WEBPACK_IMPORTED_MODULE_2__["AppComponent"]],
             providers: []
@@ -214,7 +262,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = ".modules-tab {\n  min-height: 100%;\n}\n.modules-tab .mat-tab-header {\n  z-index: 1;\n}\n.modules-tab .mat-tab-body-wrapper {\n  flex: 1;\n  z-index: 10;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwL2FwcC9EOlxcV2FtcFxcd3d3XFxleHBlcmltZW50YWxcXGNoYXQtcHJvamVjdC9zcmNcXGFwcFxcYXBwXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFDRSxnQkFBQTtBQ0FGO0FERUU7RUFDRSxVQUFBO0FDQUo7QURHRTtFQUNFLE9BQUE7RUFDQSxXQUFBO0FDREoiLCJmaWxlIjoic3JjL2FwcC9hcHAvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIlxyXG4ubW9kdWxlcy10YWIge1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcblxyXG4gIC5tYXQtdGFiLWhlYWRlciB7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gIH1cclxuXHJcbiAgLm1hdC10YWItYm9keS13cmFwcGVyIHtcclxuICAgIGZsZXg6IDE7XHJcbiAgICB6LWluZGV4OiAxMDtcclxuICB9XHJcbn1cclxuXHJcblxyXG4iLCIubW9kdWxlcy10YWIge1xuICBtaW4taGVpZ2h0OiAxMDAlO1xufVxuLm1vZHVsZXMtdGFiIC5tYXQtdGFiLWhlYWRlciB7XG4gIHotaW5kZXg6IDE7XG59XG4ubW9kdWxlcy10YWIgLm1hdC10YWItYm9keS13cmFwcGVyIHtcbiAgZmxleDogMTtcbiAgei1pbmRleDogMTA7XG59Il19 */"
+module.exports = ".tab-container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  max-height: 100%;\n}\n.tab-container .nav {\n  z-index: 0;\n}\n.tab-content {\n  flex: 1;\n  position: relative;\n  z-index: 10;\n}\n.modules-tab {\n  min-height: 100%;\n}\n.modules-tab .mat-tab-header {\n  z-index: 1;\n}\n.modules-tab .mat-tab-body-wrapper {\n  flex: 1;\n  z-index: 10;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwL2FwcC9EOlxcV2FtcFxcd3d3XFxleHBlcmltZW50YWxcXGNoYXQtcHJvamVjdC9zcmNcXGFwcFxcYXBwXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxZQUFBO0VBQ0EsZ0JBQUE7QUNDRjtBRENFO0VBQ0UsVUFBQTtBQ0NKO0FER0E7RUFDRSxPQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBO0FDQUY7QURFQTtFQUNFLGdCQUFBO0FDQ0Y7QURDRTtFQUNFLFVBQUE7QUNDSjtBREVFO0VBQ0UsT0FBQTtFQUNBLFdBQUE7QUNBSiIsImZpbGUiOiJzcmMvYXBwL2FwcC9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRhYi1jb250YWluZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgbWF4LWhlaWdodDogMTAwJTtcclxuXHJcbiAgLm5hdiB7XHJcbiAgICB6LWluZGV4OiAwO1xyXG4gIH1cclxufVxyXG5cclxuLnRhYi1jb250ZW50IHtcclxuICBmbGV4OiAxO1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICB6LWluZGV4OiAxMDtcclxufVxyXG4ubW9kdWxlcy10YWIge1xyXG4gIG1pbi1oZWlnaHQ6IDEwMCU7XHJcblxyXG4gIC5tYXQtdGFiLWhlYWRlciB7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gIH1cclxuXHJcbiAgLm1hdC10YWItYm9keS13cmFwcGVyIHtcclxuICAgIGZsZXg6IDE7XHJcbiAgICB6LWluZGV4OiAxMDtcclxuICB9XHJcbn1cclxuXHJcblxyXG4iLCIudGFiLWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGhlaWdodDogMTAwJTtcbiAgbWF4LWhlaWdodDogMTAwJTtcbn1cbi50YWItY29udGFpbmVyIC5uYXYge1xuICB6LWluZGV4OiAwO1xufVxuXG4udGFiLWNvbnRlbnQge1xuICBmbGV4OiAxO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIHotaW5kZXg6IDEwO1xufVxuXG4ubW9kdWxlcy10YWIge1xuICBtaW4taGVpZ2h0OiAxMDAlO1xufVxuLm1vZHVsZXMtdGFiIC5tYXQtdGFiLWhlYWRlciB7XG4gIHotaW5kZXg6IDE7XG59XG4ubW9kdWxlcy10YWIgLm1hdC10YWItYm9keS13cmFwcGVyIHtcbiAgZmxleDogMTtcbiAgei1pbmRleDogMTA7XG59Il19 */"
 
 /***/ }),
 
@@ -234,12 +282,20 @@ __webpack_require__.r(__webpack_exports__);
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.links = [{
+                label: "Chat Application",
+                url: "/chatapp"
+            }, {
+                label: "Custom Function ",
+                url: "/custom-function"
+            }];
+        this.activeLink = window.location.pathname;
     }
     AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-root',
             template: __webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/index.js!./src/app/app/app/app.component.html"),
-          encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
+            encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewEncapsulation"].None,
             styles: [__webpack_require__(/*! ./app.component.scss */ "./src/app/app/app/app.component.scss")]
         })
     ], AppComponent);
@@ -305,7 +361,7 @@ var ChatTabModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = ".drawer-container {\n  height: 100%;\n}\n\n.sidebar--message {\n  width: 100%;\n}\n\n.sidebar--user {\n  max-width: 360px;\n  width: 100%;\n}\n\n.sidebar .mat-drawer-inner-container {\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n}\n\n.zIndexTop {\n  z-index: 10;\n}\n\n.spacer {\n  flex: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhdC10YWIvY2hhdC10YWIvRDpcXFdhbXBcXHd3d1xcZXhwZXJpbWVudGFsXFxjaGF0LXByb2plY3Qvc3JjXFxhcHBcXGNoYXQtdGFiXFxjaGF0LXRhYlxcY2hhdC10YWIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NoYXQtdGFiL2NoYXQtdGFiL2NoYXQtdGFiLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtBQ0NGOztBREVFO0VBQ0UsV0FBQTtBQ0NKOztBREVFO0VBQ0UsZ0JBQUE7RUFDQSxXQUFBO0FDQUo7O0FER0U7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxPQUFBO0FDREo7O0FETUE7RUFDRSxXQUFBO0FDSEY7O0FETUE7RUFDRSxPQUFBO0FDSEYiLCJmaWxlIjoic3JjL2FwcC9jaGF0LXRhYi9jaGF0LXRhYi9jaGF0LXRhYi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kcmF3ZXItY29udGFpbmVyIHtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLnNpZGViYXIge1xyXG4gICYtLW1lc3NhZ2Uge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgfVxyXG5cclxuICAmLS11c2VyIHtcclxuICAgIG1heC13aWR0aDogMzYwcHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICB9XHJcblxyXG4gIC5tYXQtZHJhd2VyLWlubmVyLWNvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXg6IDE7XHJcbiAgfVxyXG5cclxufVxyXG5cclxuLnpJbmRleFRvcCB7XHJcbiAgei1pbmRleDogMTA7XHJcbn1cclxuXHJcbi5zcGFjZXIge1xyXG4gIGZsZXg6IDE7XHJcbn1cclxuIiwiLmRyYXdlci1jb250YWluZXIge1xuICBoZWlnaHQ6IDEwMCU7XG59XG5cbi5zaWRlYmFyLS1tZXNzYWdlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG4uc2lkZWJhci0tdXNlciB7XG4gIG1heC13aWR0aDogMzYwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnNpZGViYXIgLm1hdC1kcmF3ZXItaW5uZXItY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgZmxleDogMTtcbn1cblxuLnpJbmRleFRvcCB7XG4gIHotaW5kZXg6IDEwO1xufVxuXG4uc3BhY2VyIHtcbiAgZmxleDogMTtcbn0iXX0= */"
+module.exports = ".drawer-container {\n  height: 100%;\n  z-index: 9999;\n  overflow: visible !important;\n}\n\n.sidebar--message {\n  width: 100%;\n}\n\n.sidebar--user {\n  max-width: 360px;\n  width: 100%;\n}\n\n.sidebar .mat-drawer-inner-container {\n  display: flex;\n  flex-direction: column;\n  flex: 1;\n  z-index: 9999;\n}\n\n.zIndexTop {\n  z-index: 10;\n}\n\n.spacer {\n  flex: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhdC10YWIvY2hhdC10YWIvRDpcXFdhbXBcXHd3d1xcZXhwZXJpbWVudGFsXFxjaGF0LXByb2plY3Qvc3JjXFxhcHBcXGNoYXQtdGFiXFxjaGF0LXRhYlxcY2hhdC10YWIuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2NoYXQtdGFiL2NoYXQtdGFiL2NoYXQtdGFiLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtFQUNBLGFBQUE7RUFDQSw0QkFBQTtBQ0NGOztBREdFO0VBQ0UsV0FBQTtBQ0FKOztBREdFO0VBQ0UsZ0JBQUE7RUFDQSxXQUFBO0FDREo7O0FESUU7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7RUFDQSxPQUFBO0VBQ0EsYUFBQTtBQ0ZKOztBRE1BO0VBQ0UsV0FBQTtBQ0hGOztBRE1BO0VBQ0UsT0FBQTtBQ0hGIiwiZmlsZSI6InNyYy9hcHAvY2hhdC10YWIvY2hhdC10YWIvY2hhdC10YWIuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZHJhd2VyLWNvbnRhaW5lciB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIHotaW5kZXg6IDk5OTk7XHJcbiAgb3ZlcmZsb3c6IHZpc2libGUgIWltcG9ydGFudDtcclxufVxyXG5cclxuLnNpZGViYXIge1xyXG4gICYtLW1lc3NhZ2Uge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgfVxyXG5cclxuICAmLS11c2VyIHtcclxuICAgIG1heC13aWR0aDogMzYwcHg7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICB9XHJcblxyXG4gIC5tYXQtZHJhd2VyLWlubmVyLWNvbnRhaW5lciB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICAgIGZsZXg6IDE7XHJcbiAgICB6LWluZGV4OiA5OTk5O1xyXG4gIH1cclxufVxyXG5cclxuLnpJbmRleFRvcCB7XHJcbiAgei1pbmRleDogMTA7XHJcbn1cclxuXHJcbi5zcGFjZXIge1xyXG4gIGZsZXg6IDE7XHJcbn1cclxuIiwiLmRyYXdlci1jb250YWluZXIge1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDk5OTk7XG4gIG92ZXJmbG93OiB2aXNpYmxlICFpbXBvcnRhbnQ7XG59XG5cbi5zaWRlYmFyLS1tZXNzYWdlIHtcbiAgd2lkdGg6IDEwMCU7XG59XG4uc2lkZWJhci0tdXNlciB7XG4gIG1heC13aWR0aDogMzYwcHg7XG4gIHdpZHRoOiAxMDAlO1xufVxuLnNpZGViYXIgLm1hdC1kcmF3ZXItaW5uZXItY29udGFpbmVyIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbiAgZmxleDogMTtcbiAgei1pbmRleDogOTk5OTtcbn1cblxuLnpJbmRleFRvcCB7XG4gIHotaW5kZXg6IDEwO1xufVxuXG4uc3BhY2VyIHtcbiAgZmxleDogMTtcbn0iXX0= */"
 
 /***/ }),
 
@@ -427,6 +483,9 @@ var ChatDetailComponent = /** @class */ (function () {
             $event.target.value = "";
         }
     };
+    ChatDetailComponent.prototype.ngOnDestroy = function () {
+        this.subscription.unsubscribe();
+    };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("scrollable", { static: false }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
@@ -542,9 +601,6 @@ var ChatListComponent = /** @class */ (function () {
     }
     ChatListComponent.prototype.ngOnInit = function () {
         this.service.getChats();
-    };
-    ChatListComponent.prototype.ngOnDestroy = function () {
-        this.subscription.unsubscribe();
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
@@ -1169,43 +1225,46 @@ var CustomFunctionService = /** @class */ (function () {
     }
     CustomFunctionService.prototype.resolver = function (source) {
         if (source instanceof Array) {
-          return this.join(this.array(source));
+            return this.join(this.array(source));
         }
         if (source instanceof Object) {
-          return JSON.stringify(this.object(source));
+            return JSON.stringify(this.object(source));
         }
         if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(source)) {
             return source;
         }
     };
-  CustomFunctionService.prototype.join = function (data) {
-    var _this = this;
-    data.map(function (row, index) {
-      if (row instanceof Array) {
-        _this.join(row);
-      } else if (row instanceof Object) {
-        data[index] = JSON.stringify(row);
-      } else if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(row)) {
-        return row;
-      }
-    });
-    return data.join("\n");
-  };
-  CustomFunctionService.prototype.array = function (data) {
+    CustomFunctionService.prototype.join = function (data) {
+        var _this = this;
+        data.map(function (row, index) {
+            if (row instanceof Array) {
+                _this.join(row);
+            }
+            else if (row instanceof Object) {
+                data[index] = JSON.stringify(row);
+            }
+            else if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(row)) {
+                return row;
+            }
+        });
+        return data.join("\n");
+    };
+    CustomFunctionService.prototype.array = function (data) {
         var _this = this;
         data.map(function (row) {
             if (row instanceof Array) {
-              row = _this.array(row);
+                row = _this.array(row);
             }
             else if (row instanceof Object) {
-              row = _this.object(row);
-            } else if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(row)) {
-              return row;
+                row = _this.object(row);
+            }
+            else if (Object(util__WEBPACK_IMPORTED_MODULE_2__["isString"])(row)) {
+                return row;
             }
         });
         return data;
     };
-  CustomFunctionService.prototype.object = function (data) {
+    CustomFunctionService.prototype.object = function (data) {
         var formatted = data.tmpl;
         for (var key in data.data) {
             formatted = formatted.replace(new RegExp("{" + key + "}", 'g'), data.data[key]);
@@ -1267,9 +1326,9 @@ var CustomFunctionComponent = /** @class */ (function () {
                                 tmpl: "I like to {opt1}, {opt2}",
                                 data: { opt1: "ride my", opt2: "bicycle" }
                             }, { tmpl: "I like to {opt1}, {opt2}", data: { opt1: "ride my", opt2: "bicycle" } }],
-                      {tmpl: "My friend is a {opt1}", data: {opt1: "jedi"}},
-                      "I once ate 7 cheesburgers",
-                      "I once ate 7 cheesburgers"
+                        { tmpl: "My friend is a {opt1}", data: { opt1: "jedi" } },
+                        "I once ate 7 cheesburgers",
+                        "I once ate 7 cheesburgers"
                     ];
                 }
                 break;
@@ -1285,7 +1344,7 @@ var CustomFunctionComponent = /** @class */ (function () {
                 break;
         }
         this.source = JSON.stringify(source);
-      this.result = this.customFunction.resolver(source);
+        this.result = this.customFunction.resolver(source);
     };
     CustomFunctionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1537,16 +1596,16 @@ var UserProfileComponent = /** @class */ (function () {
         this.messageService = messageService;
         this.openChatWindow = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
+    UserProfileComponent.prototype.openNewChat = function () {
+        this.messageService.createChat(this.user);
+        this.openChatWindow.emit(this.user.username);
+    };
     UserProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.subscription = this.service.active.subscribe(function (user) { return _this.user = user; });
     };
     UserProfileComponent.prototype.ngOnDestroy = function () {
         this.subscription.unsubscribe();
-    };
-    UserProfileComponent.prototype.openNewChat = function () {
-        this.messageService.createChat(this.user);
-        this.openChatWindow.emit(this.user.username);
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
