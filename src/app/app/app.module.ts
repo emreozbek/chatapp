@@ -5,6 +5,7 @@ import {ChatTabModule} from "../chat-tab/chat-tab.module";
 import {UserModule} from "../user/user.module";
 import {SettingModule} from "../setting/setting.module";
 import {CustomFunctionModule} from "../custom-function/custom-function.module";
+import {AppRoutingModule} from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {CustomFunctionModule} from "../custom-function/custom-function.module";
     ChatTabModule,
     UserModule,
     SettingModule,
-    CustomFunctionModule
+    CustomFunctionModule,
+    AppRoutingModule
   ],
   bootstrap: [AppComponent],
   providers: []

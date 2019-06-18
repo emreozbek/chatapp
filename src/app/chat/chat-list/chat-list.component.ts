@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {Observable, Subscription} from "rxjs";
+import {Observable} from "rxjs";
 import {ChatService} from "../chat.service";
 import {ChatModel} from "../../core/models/chat";
 
@@ -8,9 +8,8 @@ import {ChatModel} from "../../core/models/chat";
   templateUrl: './chat-list.component.html',
   styleUrls: ['./chat-list.component.scss']
 })
-export class ChatListComponent implements OnInit, OnDestroy {
+export class ChatListComponent implements OnInit {
   @Output() openChatSidebar: EventEmitter<string> = new EventEmitter();
-  subscription: Subscription;
   chats$: Observable<ChatModel[]>;
 
   constructor(private service: ChatService) {
@@ -19,9 +18,5 @@ export class ChatListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.service.getChats();
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

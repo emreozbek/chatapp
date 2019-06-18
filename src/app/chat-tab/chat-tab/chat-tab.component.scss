@@ -1,6 +1,9 @@
 .drawer-container {
   height: 100%;
+  z-index: 9999;
+  overflow: visible !important;
 }
+
 .sidebar {
   &--message {
     width: 100%;
@@ -15,8 +18,8 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    z-index: 9999;
   }
-
 }
 
 .zIndexTop {

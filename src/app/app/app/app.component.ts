@@ -7,4 +7,12 @@ import {Component, ViewEncapsulation} from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
+  links = [{
+    label: "Chat Application",
+    url: "/chatapp"
+  }, {
+    label: "Custom Function ",
+    url: "/custom-function"
+  }];
+  activeLink = window.location.pathname;
 }

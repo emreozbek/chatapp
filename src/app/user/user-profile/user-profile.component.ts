@@ -17,16 +17,16 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   constructor(private service: UserService, private messageService: ChatService) {
   }
 
+  openNewChat() {
+    this.messageService.createChat(this.user);
+    this.openChatWindow.emit(this.user.username);
+  }
+
   ngOnInit() {
     this.subscription = this.service.active.subscribe(user => this.user = user);
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  openNewChat() {
-    this.messageService.createChat(this.user);
-    this.openChatWindow.emit(this.user.username);
   }
 }

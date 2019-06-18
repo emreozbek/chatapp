@@ -1,8 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from "rxjs";
 import {ChatService} from "../chat.service";
 import {MessageControlService} from "../../core/services/message-control.service";
-import {MessageModel} from "../../core/models/message";
 import {ChatModel} from "../../core/models/chat";
 
 @Component({
@@ -10,7 +9,7 @@ import {ChatModel} from "../../core/models/chat";
   templateUrl: './chat-detail.component.html',
   styleUrls: ['./chat-detail.component.scss']
 })
-export class ChatDetailComponent implements OnInit {
+export class ChatDetailComponent implements OnInit, OnDestroy {
   @ViewChild("scrollable", {static: false}) scrollable;
   subscription: Subscription;
   chat: ChatModel;
@@ -41,5 +40,9 @@ export class ChatDetailComponent implements OnInit {
       this.sending = true;
       $event.target.value = "";
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }
